@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // var_dump($_SERVER);  VAR_DUMP()
+    // dd($_SERVER);        DD()  
+    // dump($_SERVER);      DUMP()
+    // ddd($_SERVER);       DDD()
+
+    $users = User::all();
+    return $users; // JSON
+    
+    // return view('welcome');
 });
