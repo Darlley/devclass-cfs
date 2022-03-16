@@ -13,6 +13,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::prefix('blog')->group(function(){
+    Route::get('/', function(){
+        dd('Blog');
+    });
+
+    Route::get('/post/{slug}', function($id_slug){
+        dd($id_slug);
+    })->whereAlphaNumeric('slug');
+});
+
+Route::prefix('admin')->group(function(){
+    Route::get('/', function(){
+        dd('Admin');
+    });
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
