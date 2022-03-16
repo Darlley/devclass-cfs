@@ -20,7 +20,7 @@ Route::prefix('blog')->group(function(){
 
     Route::get('/post/{slug}', function($id_slug){
         dd($id_slug);
-    })->where('slug', '[a-z\-\0-9]+');
+    })->whereAlphaNumeric('slug');
 });
 
 Route::prefix('admin')->group(function(){
