@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\{
+    HomeController,
+    ProductController
+};
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +17,33 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function(){
     return view('welcome');
+})->name('home');
+
+Route::post('/login', function(){
+
+    return back()->withInput()->with('message', 'Erro ao fazer o login');
+
+});
+
+Route::get('/product/{id}', [ProductController::class,'edit'])->name('product.edit');
+Route::get('/product/create', [ProductController::class,'create'])->name('product.create');
+
+// Route::get('/teste', function(){
+//     return redirect()->route('product', ['id'=> '45']);
+// });
+
+Route::get('/teste', function(){
+
+    // return redirect()->action([HomeController::class, 'index']);
+
+    // return redirect()->action([ProductController::class, 'edit'],[
+    //     'id'=>'45'
+    // ]);
+    
+    // return redirect()->action([ProductController::class, 'create']);
+    
+    // return redirect()->away('https://google.com/'); // links externo
+
 });
