@@ -13,7 +13,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        dd('List User');
+        //
     }
 
     /**
@@ -23,7 +23,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        dd('create new user');
+        dd('Create');
     }
 
     /**
@@ -34,7 +34,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        dd('store');
+        dd("store -> $request");
     }
 
     /**
@@ -45,7 +45,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        dd("user/$id/id");
+        dd("user = $id");
     }
 
     /**
@@ -56,7 +56,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        dd("User/$id/edit");
+        //
     }
 
     /**
@@ -68,7 +68,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd("User/$id/ update");
+        //
     }
 
     /**
@@ -79,6 +79,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        dd("delete $id");
+        //
     }
 }
