@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\{
+    AdminController,
+    ClientController,
+    HomeController
+};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +18,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/login', [HomeController::class, 'index'])->name('login');
+Route::get('/protected', [HomeController::class, 'index'])->name('protected')->middleware('teste:Darlley');
+
+Route::prefix('admin')->middleware('auth')->group(function () {
+    Route::get('/', [AdminController::class,'index'])->name('admin.home')->withoutMiddleware('auth');
+    Route::get('/clients', [ClientController::class,'index'])->name('admin.clients');
 });
