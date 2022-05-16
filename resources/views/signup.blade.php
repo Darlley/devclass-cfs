@@ -1,11 +1,12 @@
 @extends('templates.app', [
-    'title' => 'Home title'
+    'title' => 'SignUp title'
 ])
 
 @section('contents')
-    <h2>Home</h2>
+    <h2>Signup</h2>
 @endsection
 
+
 @section('assets')
-<script>alert('home')</script>
+<script>alert('signup')</script>
 @endsection
