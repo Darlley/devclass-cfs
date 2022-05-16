@@ -1,14 +1,11 @@
-@extends('templates.app', [
-    'title' => 'Login title'
-])
-
-@section('contents')
+<x-layout>
     <h2>Login</h2>
     <form action="{{ route('login.post') }}" method="POST">
         @csrf
         <input type="text" name="name">
-        <x-button>
-            <x-slot name="text">Login</x-slot>
+
+        <x-button class="button_login" type="submit">
+            Login
         </x-button>
     </form>
-@endsection
+</x-layout>

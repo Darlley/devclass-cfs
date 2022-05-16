@@ -1,3 +1,4 @@
-<button type="submit">
+<button {{ $attributes }} :name="$name">
+    {{ $name }}
     {{ $slot }}
 </button>
