@@ -7,11 +7,8 @@
     <form action="{{ route('login.post') }}" method="POST">
         @csrf
         <input type="text" name="name">
-        <button type="submit" name="">Login</button>
+        <x-button>
+            <x-slot name="text">Login</x-slot>
+        </x-button>
     </form>
-@endsection
-
-
-@section('assets')
-<script>alert('login')</script>
 @endsection

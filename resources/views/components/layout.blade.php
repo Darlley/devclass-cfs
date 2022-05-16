@@ -7,9 +7,9 @@
     <title>Document</title>
 </head>
 <body>
+    <h1>Page</h1>
     <div class="container">
-        <h1>{{ $title }}</h1>
-        @yield('contents')
+        {{ $slot }}
     </div>
 </body>
 </html>

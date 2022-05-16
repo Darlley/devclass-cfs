@@ -1,11 +1,6 @@
-@extends('templates.app', [
-    'title' => 'Home title'
-])
-
-@section('contents')
-    <h2>Home</h2>
-@endsection
-
-@section('assets')
-<script>alert('home')</script>
-@endsection
+<x-layout>
+    <h2>Home 2</h2>
+    <x-button>
+        Comprar
+    </x-button>
+</x-layout>
