@@ -1,4 +1,9 @@
 <x-layout>
+
+    @if(session('logged'))
+        <p>{{ session('logged') }}</p>
+        <h1>Seja bem vindo!</h1>
+    @else
     <form action="{{ route('login.store') }}" method="post" enctype="multipart/form-data">
         @csrf
         <fieldset>{{ $title }}</fieldset>
@@ -7,4 +12,6 @@
         <input type="file" name="file" id="">
         <button type="submit">Login</button>
     </form>
+    @endif
+
 </x-layout>

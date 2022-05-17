@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +26,8 @@ Route::get('/login', function(){
 });
 
 Route::post('/login', function(Request $request){
-    if($request->has('email')){
-        dd($request->file);
-    }
+
+    session()->flash('logged','Logado com Sucesso!');
+    return redirect()->back();
+    
 })->name('login.store');
