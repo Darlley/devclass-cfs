@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\Component;
 
 class Users extends Component
@@ -24,6 +25,9 @@ class Users extends Component
      */
     public function render()
     {
+        if(!Auth::check()){
+            return view('components.guest');
+        }
         return view('components.users');
     }
 }
