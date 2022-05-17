@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+Route::get('/login', function(){
+    return view('login',[
+        'title' => 'login'
+    ]);
+});
+
+Route::post('/login', function(Request $request){
+    if($request->has('email')){
+        dd($request->file);
+    }
+})->name('login.store');
