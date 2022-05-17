@@ -15,8 +15,13 @@ class HomeController extends Controller
     public function index()
     {
         $users = User::all();
+        $isAdmin = true;
+        $isAuthenticated = false;
+
         return view('home',[
-            'users' => $users
+            'users' => $users,
+            'isAdmin' => $isAdmin,
+            'isAuthenticated' => $isAuthenticated
         ]);
     }
 
