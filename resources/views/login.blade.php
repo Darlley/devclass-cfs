@@ -1,17 +1,20 @@
 <x-layout>
-
-    @if(session('logged'))
-        <p>{{ session('logged') }}</p>
-        <h1>Seja bem vindo!</h1>
-    @else
-    <form action="{{ route('login.store') }}" method="post" enctype="multipart/form-data">
+    
+    @include('partials.errors')
+    
+    <form action="{{ route('login.store') }}" method="post">
         @csrf
         <fieldset>{{ $title }}</fieldset>
-        <input type="email" name="email" value="darlleybrito@gmail.com">
-        <input type="password" name="password" value="12345678">
-        <input type="file" name="file" id="">
+        
+        <div>
+            <input type="text" name="email" value="darlleybrito@gmail.com"> {{ $errors->first('email') }}
+        </div>
+        
+        <div>
+            <input type="password" name="password" value="12345678"> {{ $errors->first('password') }}
+        </div>
+
         <button type="submit">Login</button>
     </form>
-    @endif
 
 </x-layout>

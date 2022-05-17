@@ -27,7 +27,11 @@ Route::get('/login', function(){
 
 Route::post('/login', function(Request $request){
 
-    session()->flash('logged','Logado com Sucesso!');
-    return redirect()->back();
-    
+    $validated = $request->validate([
+        'email' => 'required|email',
+        'password' => 'required|min:5'
+    ]);
+
+    dd($validated);
+
 })->name('login.store');
