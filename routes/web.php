@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\LoginController;
+use App\Http\Requests\LoginRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
@@ -19,19 +21,9 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/login', function(){
-    return view('login',[
-        'title' => 'login'
-    ]);
-});
+Route::get('/login', [LoginController::class, 'index']);
+Route::post('/login', [LoginController::class, 'store'])->name('login.store');
 
-Route::post('/login', function(Request $request){
-
-    $validated = $request->validate([
-        'email' => 'nullable|email',
-        'password' => 'required|min:5'
-    ]);
-
-    dd($validated);
-
-})->name('login.store');
+Route::get('/error', function() {
+    return "<h1>Caminho não encontrado!</h1>";
+})->name('error');
