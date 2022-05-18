@@ -28,7 +28,7 @@ Route::get('/login', function(){
 Route::post('/login', function(Request $request){
 
     $validated = $request->validate([
-        'email' => 'required|email',
+        'email' => 'nullable|email',
         'password' => 'required|min:5'
     ]);
 
