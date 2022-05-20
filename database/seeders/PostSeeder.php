@@ -21,7 +21,7 @@ class PostSeeder extends Seeder
         $faker = Factory::create('pt_BR');
         $userId = User::all()->pluck('id')->toArray();
 
-        for($i = 0; $i <= 10; $i++){
+        for($i = 0; $i <= 100; $i++){
             DB::table('posts')->insert([
                 'userId' => $faker->randomElement($userId),
                 'title' => $faker->sentence(4),
