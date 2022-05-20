@@ -18,9 +18,10 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('userId')->unsigned();
             $table->foreign('userId')->references('id')->on('users')->delete('cascade');
-            $table->string('title',50);
-            $table->timestamp('created_at')->useCurrent();
-            $table->timestamp('updated_at')->useCurrentOnUpdate();
+            $table->string('title');
+            $table->string('slug');
+            $table->text('content');
+            $table->timestamps();
         });
     }
 
