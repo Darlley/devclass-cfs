@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +16,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $data = DB::select("select * from users");
+    // $pluck = new Collection([
+    //         ["name"=>"Desk"], 
+    //         ["name"=>"Chair"]
+    // ]); 
+    $collection = collect($data);
+    dd($collection->filter(function($value, $key){
+        if($key > 10){
+            return $value;
+        };
+    })->take(10));
 });
