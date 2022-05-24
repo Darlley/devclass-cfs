@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    $users = DB::table('users')->select('id','name')->where('id','>',80)->limit(10)->orderBy('id','ASC')->get();
+
+    // dd($users);
+
     return view('welcome');
 });
