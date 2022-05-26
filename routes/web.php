@@ -15,14 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    // $deleted = DB::table('users')->delete();                                                             delete todos
-    // $deleted = DB::table('users')->delete(100);                                                          delete id 100
-    // $deleted = DB::table('users')->where('email','kelly.rico@r7.com')->delete();                         delete quando email =
-    // $deleted = DB::table('users')->where('id',119)->update([                                             update de todos
-    //     'name' => 'Darlley Brito'
-    // ]);
-    $deleted = DB::table('users')->where('id',119)->update([                                             // update quando id =
-        'name' => 'Darlley Brito'
+
+    return view('users',[
+        'users' => DB::table('users')->select('id','name','email')->paginate(10),
+        'usersAll' => DB::table('users')->select('id','name','email')->simplePaginate(10)
     ]);
-    dd($deleted);
 });
