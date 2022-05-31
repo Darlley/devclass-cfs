@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
@@ -16,12 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
 
-    $users = DB::table('users')->select(DB::raw('count(*) as user_count, name'))
-        ->where('id','>',10)
-        ->groupBy('name')
-        ->get();
+    $user = User::where('id','>',114)->listarUsuarios()->get();
+    dd($user);
 
-    return view('users',[
-        'users' => $users,
-    ]);
 });
