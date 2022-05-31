@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
 
-    $user = User::where('id','>',114)->listarUsuarios()->get();
-    dd($user);
+    $user = User::find(144);
+    echo $user->created_at->diffForHumans();
 
 });
