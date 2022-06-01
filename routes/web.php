@@ -18,6 +18,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
 
     $user = User::find(144);
-    echo $user->created_at->diffForHumans();
+    echo $user;
 
 });
