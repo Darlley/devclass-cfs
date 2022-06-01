@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'tags'
     ];
 
     /**
@@ -41,6 +42,9 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'created_at' => 'date:d/m/Y | H:i:s',
+        'updated_at' => 'date:d/m/Y | H:i:s',
+        'tags' => 'array',
     ];
 
     public function scopeListarUsuarios($query)

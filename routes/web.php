@@ -17,7 +17,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
 
-    $user = User::find(144);
-    echo $user;
+    $arr = ['suporte','vendas','checkout'];
+    
+    // User::create([
+    //     'name' => "Darlley",
+    //     'email' => "darlley01@example.net",
+    //     'password' => bcrypt('123'),
+    //     'tags' => $arr
+    // ]);
+
+    dd(User::all());
 
 });
