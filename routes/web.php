@@ -17,15 +17,24 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
 
-    $arr = ['suporte','vendas','checkout'];
-    
-    // User::create([
-    //     'name' => "Darlley",
-    //     'email' => "darlley01@example.net",
-    //     'password' => bcrypt('123'),
-    //     'tags' => $arr
-    // ]);
+    // $users = User::all();
 
-    dd(User::all());
+    // $html = "<ul>";
+    // foreach ($users as $user)
+    // {
+    //     $html .= "<li>$user->tags</li>";
+    // }
+    // $html .= "</ul>";
+
+    // return $html;
+
+    $user = User::create([
+        "name" => "Beltrano jr 2",
+        "email" => "beltrano@mail.com",
+        "password" => bcrypt("123"),
+        "tags" => ["Maria","Felipe","João"]
+    ]);
+
+    dd($user);
 
 });

@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Casts\Name;
+use App\Casts\Tags;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -42,9 +44,8 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'created_at' => 'date:d/m/Y | H:i:s',
-        'updated_at' => 'date:d/m/Y | H:i:s',
-        'tags' => 'array',
+        'name' => Name::class,
+        'tags' => Tags::class
     ];
 
     public function scopeListarUsuarios($query)
