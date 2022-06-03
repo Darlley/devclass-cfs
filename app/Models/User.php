@@ -44,12 +44,21 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'name' => Name::class,
-        'tags' => Tags::class
+        // 'name' => Name::class,
+        // 'tags' => Tags::class
     ];
 
     public function scopeListarUsuarios($query)
     {
         return $query->where('id','<',132);
+    }
+
+    public function getNameAttribute($value)
+    {
+        return "ldz_".$value;
+    }
+
+    public function getEmailAttribute($value){
+        return "dev_".$value;
     }
 }
