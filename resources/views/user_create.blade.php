@@ -1,16 +1,22 @@
 @extends('master')
 @section('content')
 
+@if(session()->has('success'))
+    <x-alert key="success" :message="session()->get('success')" />
+@elseif(session()->has('error'))
+    <x-alert key="danger" :message="session()->get('error')" />    
+@endif
+
 <form action="{{ route('user.store') }}" method="post">
     @csrf
 
-    <label for="firstName">First Name</label>
-    <input type="text" name="firstName" id="" class="form-control">
-    <span>{{ $errors->first('firstName') }}</span>
+    <label for="first_name">First Name</label>
+    <input type="text" name="first_name" id="" class="form-control">
+    <span>{{ $errors->first('first_name') }}</span>
 
-    <label for="lastName">Last Name</label>
-    <input type="text" name="lastName" id="" class="form-control">
-    <span>{{ $errors->first('lastName') }}</span>
+    <label for="last_name">Last Name</label>
+    <input type="text" name="last_name" id="" class="form-control">
+    <span>{{ $errors->first('last_name') }}</span>
 
     <label for="email">E-mail</label>
     <input type="email" name="email" id="" class="form-control">

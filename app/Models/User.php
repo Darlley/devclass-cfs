@@ -42,4 +42,17 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function insert(array $validated)
+    {
+        // $this->first_name = $validated['firstName'];
+        // $this->last_name = $validated['lastName'];
+        // $this->email = $validated['email'];
+        // $this->password = bcrypt($validated['password']);
+        // return $this->save();
+
+        $validated['password'] = bcrypt($validated['password']);
+        return $this->create($validated);
+
+    }
 }
