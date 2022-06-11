@@ -4,7 +4,11 @@
 
     <ul>
         @foreach ($users as $user)
-            <li>{{ $user->first_name }} {{ $user->last_name }} - {{ $user->email }} </li>
+            <li>
+                {{ $user->first_name }} {{ $user->last_name }} - {{ $user->email }}
+                <a href="{{ route('user.edit', $user->id) }}">Editar</a>
+                <a href="{{ route('user.destroy', $user->id) }}">Deletar</a>
+            </li>
         @endforeach
     </ul>
 

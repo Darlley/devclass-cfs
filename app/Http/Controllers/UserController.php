@@ -49,4 +49,31 @@ class UserController extends Controller
         return back();
 
     }
+
+    public function edit(User $user){
+        return view('user-edit',[
+            'title' => $user->first_name,
+            'user' => $user
+        ]);
+    }
+
+    public function update(Request $request, User $user){
+
+        $validated = $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required|unique:users,email,'.$user->id,
+        ]);
+
+        $updated = $user->update($validated);
+        $updated && session()->flash('updated_success',"Usuario ".$user->first_name." atualizado com sucesso!");
+
+        return back();
+    }
+
+    public function destroy(User $user){
+        $user->delete();
+
+        return back();
+    }
 }
