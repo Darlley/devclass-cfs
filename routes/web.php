@@ -3,6 +3,8 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PasswordController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,3 +28,8 @@ Route::get('/user/{user:id}', [UserController::class, 'destroy'])->name('user.de
 
 Route::post('/password/{user:id}', [PasswordController::class, 'update'])->name('password.update');
 
+Route::get('/login', [LoginController::class,'index'])->name('login');
+Route::post('/login/user', [LoginController::class,'store'])->name('login.store');
+Route::get('/logout', [LoginController::class,'destroy'])->name('login.destroy');
+
+Route::get('/admin', [AdminController::class,'index'])->middleware('auth')->name('admin');
