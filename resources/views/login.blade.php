@@ -17,6 +17,8 @@
             {{ $errors->first('password') }}
         </div>
 
+        <input type="checkbox" name="remember" id=""> Lembrar?
+
         <button type="submit">Entrar</button>
     </form>
 @endsection

@@ -43,13 +43,14 @@ class LoginController extends Controller
             'password' => 'required'
         ]);
 
-        if(Auth::attempt([
-            'email' => $validated['email'],
-            'password' => $validated['password'],
-            "is_admin" => 1
-        ])){
+        if(
+            Auth::attempt(['email' => $validated['email'],'password' => $validated['password'],"is_admin" => 1],
+            $request->filled('remember'))
+        ){
+
             $request->session()->regenerate();
             return redirect()->intended('admin');
+
         }
 
         return back()->withErrors([
